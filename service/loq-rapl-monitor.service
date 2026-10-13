@@ -1,0 +1,24 @@
+[Unit]
+Description=Read-only Intel RAPL power monitor for Cinnamon
+After=multi-user.target
+ConditionPathExists=/sys/class/powercap/intel-rapl:0/energy_uj
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /usr/local/libexec/loq-rapl-monitor.py
+Restart=on-failure
+RestartSec=3
+RuntimeDirectory=loq-rapl-monitor
+RuntimeDirectoryMode=0755
+UMask=0022
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+ReadWritePaths=/run/loq-rapl-monitor
+
+[Install]
+WantedBy=multi-user.target

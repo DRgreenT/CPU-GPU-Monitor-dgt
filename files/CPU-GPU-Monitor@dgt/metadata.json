@@ -1,0 +1,7 @@
+{
+  "uuid": "CPU-GPU-Monitor@dgt",
+  "name": "CPU/GPU Monitor",
+  "description": "CPU and NVIDIA GPU temperature, utilization, power and power limits.",
+  "version": "1.0.0",
+  "max-instances": 1
+}
